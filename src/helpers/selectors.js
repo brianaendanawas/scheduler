@@ -14,12 +14,19 @@ export function getInterview(state, interview) {
     return null;
   } else {
     return {
-      "student": interview.student,
-      "interviewer": {  
-        "id": state.interviewers[interview.interviewer].id,
-        "name": state.interviewers[interview.interviewer].name,
-        "avatar": state.interviewers[interview.interviewer].avatar 
-      }
+      student: interview.student,
+      interviewer: state.interviewers[interview.interviewer]
     }
   }
+}
+
+export function getInterviewersForDay(state, day) {
+  let interviewers = [];
+  state.days.filter(weekDay => {
+    if (weekDay.name === day) {
+      interviewers = weekDay.interviewers.map(id => state.interviewers[id]);
+    }
+    return interviewers;
+  });
+  return interviewers;
 }
