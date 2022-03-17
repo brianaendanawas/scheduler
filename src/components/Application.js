@@ -1,3 +1,4 @@
+
 import React from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
@@ -56,6 +57,7 @@ export default function Application() {
       </section>
       <section className="schedule">
         {schedule}
+        <Appointment key={"last"} time={"5pm"}/>
       </section>
       
     </main>
