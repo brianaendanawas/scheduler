@@ -27,6 +27,7 @@ export default function Form(props) {
       return;
     }
   
+    setError("");
     props.onSave(student, interviewer);
   }
 
@@ -43,8 +44,8 @@ export default function Form(props) {
             onChange={(event) => setStudent(event.target.value)}
             data-testid="student-name-input"
           />
-          <section className="appointment__validation">{error}</section>
         </form>
+        <section className="appointment__validation">{error}</section>
         <InterviewerList 
           interviewers={props.interviewers}
           value={interviewer}
